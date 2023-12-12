@@ -1,0 +1,237 @@
+{% extends 'products/base.html' %}
+{% load static %}
+
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'vendor/css/main.css'%}">
+{% endblock %}
+
+{% block content %}
+
+    <section class="learn">
+        <div class="learn__container">
+            <div class="learn__inner">
+                <div class="learn__content">
+                    <h1 class="learn__title">
+                        Учитесь
+                        <span class="learn__title_gradient base-gradient">без ограничений</span>
+                    </h1>
+                    <h6 class="learn__subtitle">
+                        Приобретайте новые навыки в удобном для вас формате с помощью гибких и персонализированных учебных курсов
+                    </h6>
+                </div>
+                <div class="learn__gif">
+                    <video class="home-video_autoplay" autoplay loop muted>
+                        <source src="/static/vendor/js/modules/home/img/learn/learn_mp4.fe3d33c5d535.mp4">
+                        <source src="/static/vendor/js/modules/home/img/learn/learn_webm.0a73cc96de6f.webm">
+                    </video>
+                    <div class="home-video__plug"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="categories">
+        <div class="categories_container">
+            <div class="categories__inner">
+                <div class="categories-chips__wrapper">
+                    {% for category in categories %}
+                        <div href="" class="category-button" type="secondary">
+                            <a href="" class="button secondary l" tabindex="0">
+                                <span class="button__label">{{ category.name }}</span>
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="statistics">
+        <div class="statistics_container">
+            <div class="statistics__inner">
+                <div class="statistics__text">
+                    Только
+                    <span class="statistics__text_gradient base-gradient">
+                        лучшие и актуальные знания
+                    </span>
+                    от  сертифицированных экспертов
+                </div>
+                <div class="statistics__items">
+                    <div class="statistics__item item-statistics">
+                        <div class="item-statistics__value">100</div>
+                        <div class="item-statistics__text">Курсов</div>
+                    </div>
+                    <div class="statistics__item item-statistics">
+                        <div class="item-statistics__value">48</div>
+                        <div class="item-statistics__text">Преподавателей</div>
+                    </div>
+                    <div class="statistics__item item-statistics">
+                        <div class="item-statistics__value">75</div>
+                        <div class="item-statistics__text">Учеников</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="benefits">
+        <div class="benefits-base-container">
+            <div class="benefits__inner">
+                <div class="benefit">
+                    <div class="benefit__info">
+                        <h3 class="benefit__title">Лучшие эксперты</h3>
+                        <div class="benefit__description">
+                            У нас работают только сертифицированные эксперты,
+                            окончившие лучшие университеты страны. Они не перестают
+                            развиваться и пополняют свой запас знаний, обучая студентов
+                        </div>
+                    </div>
+                    <div class="benefit__gif">
+                        <video class="home-video_autoplay" autoplay loop muted>
+                            <source src="/static/vendor/js/modules/home/img/benefits/benefit1_webm.cf713b0394f5.webm">
+                            <source src="/static/vendor/js/modules/home/img/benefits/benefit1_mp4.9cc59ccb93c0.mp4">
+                        </video>
+                        <div class="home-video__plug"></div>
+                    </div>
+                </div>
+                <div class="benefit">
+                    <div class="benefit__info">
+                        <h3 class="benefit__title">Огромная база знаний</h3>
+                        <div class="benefit__description">
+                            На нашей платформе сосредоточена огромная база знаний, состоящая из актуальных курсов
+                        </div>
+                    </div>
+                    <div class="benefit__gif">
+                        <video class="home-video_autoplay" autoplay loop muted>
+                            <source src="/static/vendor/js/modules/home/img/benefits/benefit2_webm.b5ff63bd9975.webm">
+                            <source src="/static/vendor/js/modules/home/img/benefits/benefit2_mp4.9bac6a20a1f9.mp4">
+                        </video>
+                        <div class="home-video__plug"></div>
+                    </div>
+                </div>
+                <div class="benefit">
+                    <div class="benefit__info">
+                        <h3 class="benefit__title">Актуальная информация</h3>
+                        <div class="benefit__description">
+                             Мы стремимся, чтобы наши курсы шли в ногу со временем. Актуальность информации, что мы даём студентам, превыше всего
+                        </div>
+                    </div>
+                    <div class="benefit__gif">
+                        <video class="home-video_autoplay" autoplay loop muted>
+                            <source src="/static/vendor/js/modules/home/img/benefits/benefit3_webm.c6d4717f5dc5.webm">
+                            <source src="/static/vendor/js/modules/home/img/benefits/benefit3_mp4.415f750d4024.mp4">
+                        </video>
+                        <div class="home-video__plug"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="popular-courses">
+        <div class="popular-courses-base-container">
+            <div class="popular-courses__inner">
+                <div class="popular-courses__header">
+                    <h2 class="popular-courses__title">Популярные курсы</h2>
+                    <button class="popular-courses__button" href="/products/">
+                        <a class="button secondary l" href={% url 'products' %}>
+                            <span class="button__label">Все курсы</span>
+                            <mwc-icon class="button__icon"><!--chevron_right--></mwc-icon>
+                        </a>
+                    </button>
+                </div>
+                <div class="popular-courses__courses__list">
+                    <div class="popular-courses__slider popular-courses__swiper swiper swiper-initialized swiper-horizontal swiper-pointer-events swiper-backface-hidden">
+                        <div class="swiper-wrapper" style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px);">
+                            {% for product in products %}
+                                <div class="course-card">
+                                    <a class="card tablet" href="">
+                                        <div class="card-header">
+                                            <div class="rating">
+                                                <div class="rating__star">
+                                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                                        <g id="SVGRepo_iconCarrier">
+                                                            <path d="M9.15316 5.40838C10.4198 3.13613 11.0531 2 12 2C12.9469 2 13.5802 3.13612 14.8468 5.40837L15.1745 5.99623C15.5345 6.64193 15.7144 6.96479 15.9951 7.17781C16.2757 7.39083 16.6251 7.4699 17.3241 7.62805L17.9605 7.77203C20.4201 8.32856 21.65 8.60682 21.9426 9.54773C22.2352 10.4886 21.3968 11.4691 19.7199 13.4299L19.2861 13.9372C18.8096 14.4944 18.5713 14.773 18.4641 15.1177C18.357 15.4624 18.393 15.8341 18.465 16.5776L18.5306 17.2544C18.7841 19.8706 18.9109 21.1787 18.1449 21.7602C17.3788 22.3417 16.2273 21.8115 13.9243 20.7512L13.3285 20.4768C12.6741 20.1755 12.3469 20.0248 12 20.0248C11.6531 20.0248 11.3259 20.1755 10.6715 20.4768L10.0757 20.7512C7.77268 21.8115 6.62118 22.3417 5.85515 21.7602C5.08912 21.1787 5.21588 19.8706 5.4694 17.2544L5.53498 16.5776C5.60703 15.8341 5.64305 15.4624 5.53586 15.1177C5.42868 14.773 5.19043 14.4944 4.71392 13.9372L4.2801 13.4299C2.60325 11.4691 1.76482 10.4886 2.05742 9.54773C2.35002 8.60682 3.57986 8.32856 6.03954 7.77203L6.67589 7.62805C7.37485 7.4699 7.72433 7.39083 8.00494 7.17781C8.28555 6.96479 8.46553 6.64194 8.82547 5.99623L9.15316 5.40838Z" fill="#4378FEFF">
+                                                            </path>
+                                                        </g>
+                                                    </svg>
+                                                </div>
+                                                {{ product.rating }}
+                                            </div>
+                                        </div>
+                                        <h3 class="title-course">{{ product.name }}</h3>
+                                        <div class="chips">
+                                            <div class="chips_item chips_item--online">{{ product.educationFormat }}</div>
+                                            <div class="chips_item">{{ product.transEducation }}</div>
+                                            <div class="chips_item">{{ product.category }}</div>
+                                        </div>
+                                        <div class="params">
+                                            <div class="price">
+                                                <div class="price__icon">
+                                                    <svg fill="#4378FEFF" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" stroke="#4378FEFF">
+                                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                                        <g id="SVGRepo_iconCarrier">
+                                                            <path d="M19.388.405a.605.605 0 0 0-1.141.399c.929 2.67-.915 4.664-2.321 5.732l-.568-.814c-.191-.273-.618-.5-.95-.504l-3.188.014a2.162 2.162 0 0 0-1.097.338L.729 12.157a1.01 1.01 0 0 0-.247 1.404l4.269 6.108c.32.455.831.4 1.287.082l9.394-6.588c.27-.191.582-.603.692-.918l.998-3.145c.11-.314.043-.793-.148-1.066l-.346-.496c1.888-1.447 3.848-4.004 2.76-7.133zm-4.371 9.358a1.608 1.608 0 0 1-2.24-.396 1.614 1.614 0 0 1 .395-2.246 1.607 1.607 0 0 1 1.868.017c-.272.164-.459.26-.494.275a.606.606 0 0 0 .259 1.153c.086 0 .174-.02.257-.059.194-.092.402-.201.619-.33a1.615 1.615 0 0 1-.664 1.586z">
+                                                            </path>
+                                                        </g>
+                                                    </svg>
+                                                </div>
+                                                {{ product.price }} ₽
+                                            </div>
+                                            <div class="lesson-duration">
+                                                <div class="lesson-duration__icon">
+                                                    <svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.624"></g>
+                                                        <g id="SVGRepo_iconCarrier">
+                                                            <path d="M12 7V12L10.5 14.5M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#595959" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                            </path>
+                                                        </g>
+                                                    </svg>
+                                                </div>
+                                                {{ product.timeLesson }}
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="motivation">
+        <div class="motivation-base-container">
+            <div class="motivation__inner">
+                <div class="home-separator home-separator_top"></div>
+                <div class="motivation__text">На протяжении всего курса мы будем с вами,
+                    <span class="motivation__text_gradient base-gradient">подводя вас к победе!</span>
+                </div>
+                <div class="motivation__gif">
+                    <video class="home-video_autoplay" autoplay loop muted>
+                        <source src="/static/vendor/js/modules/home/img/motivation/motivation_webm.9c0c86f636c5.webm">
+                        <source src="/static/vendor/js/modules/home/img/motivation/motivation_mp4.069ecddcf706.mp4">
+                    </video>
+                    <div class="home-video__plug"></div>
+                </div>
+                <div class="home-separator"></div>
+            </div>
+        </div>
+    </section>
+
+
+    <script type="module" src="/static/vendor/js/modules/home/mwc-icon/mwc-icon.js"></script>
+    <script src="/static/vendor/js/modules/home/home.js"></script>
+
+
+
+{% endblock %}

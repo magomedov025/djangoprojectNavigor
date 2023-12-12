@@ -1,0 +1,115 @@
+/*
+ * Copyright (c) 2021. CRON LLC. All rights reserved.
+ * The copyright notice above does not evidence any actual or
+ * intended publication of such source code. The code contains
+ * CRON LLC Confidential Proprietary Information.
+ */
+
+ :root {
+  --mdc-theme-primary: #000000;
+  --mdc-theme-secondary: #000000;
+  --mdc-theme-on-primary: #ffffff;
+  --mdc-theme-on-secondary: #ffffff;
+  --mdc-typography-button-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+body {
+  display: block;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 12px;
+  box-sizing: border-box;
+ }
+
+.header {
+  width: 100%;
+}
+
+.header-sections {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
+}
+
+.header-section {
+  padding: 8px 0;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.header-branding {
+  text-decoration: none;
+  line-height: 0;
+}
+
+.login-button {
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+@media (min-width: 479px) {
+  #profile-menu-button {
+    padding: 8px;
+  }
+
+  #profile-menu-button .mdc-icon-button__icon {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.main-content {
+  min-height: calc(100vh - 140px);
+}
+
+.footer {
+  width: 100%;
+}
+
+.footer-sections {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  height: 64px;
+}
+
+@media (min-width: 767px) {
+  .footer-sections {
+    flex-direction: row;
+  }
+}
+
+.footer-section {
+  padding: 8px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 100%;
+}
+
+@media (min-width: 767px) {
+  .footer-section {
+    justify-content: flex-start;
+  }
+}
+
+.footer-section-item {
+  font-size: 12px;
+  text-decoration: none;
+  margin-right: 12px;
+  color: #919191;
+}
+
+.footer-link {
+  text-decoration: none;
+}

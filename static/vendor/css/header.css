@@ -1,0 +1,135 @@
+.header__container{
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    max-width: 1210px;
+    padding: 0 16px;
+}
+
+.header__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+@media (min-width: 576px){
+    .header__inner {
+        padding: 24px 0;
+    }
+}
+
+@media (min-width: 768px){
+    .header__inner {
+        padding: 32px 0;
+    }
+}
+
+@media (min-width: 992px){
+    .header__inner {
+        padding: 40px 0;
+    }
+}
+
+@media (min-width: 1180px){
+    .header__inner {
+        padding: 48px 0;
+    }
+}
+
+.header__logo {
+    width: 96px;
+    height: 26px;
+    background-image: url('../img/logo2.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 0 50%;
+}
+
+@media (min-width: 576px){
+    .header__logo {
+        width: 97px;
+        height: 32px;
+    }
+}
+
+@media (min-width: 768px){
+    .header__logo {
+        width: 120px;
+        height: 40px;
+    }
+}
+
+@media (min-width: 992px){
+    .header__logo {
+        width: 146px;
+        height: 48px;
+    }
+}
+
+@media (min-width: 1180px){
+    .header__logo {
+        width: 176px;
+        height: 58px;
+    }
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+.nav__item{
+    height: fit-content;
+}
+
+.nav__item {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .nav__item {
+    display: block;
+  }
+}
+
+.button--header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  outline: none;
+  border: medium;
+  font-family: var(--theme-text-primary);
+  font-weight: 500;
+  width: max-content;
+  box-sizing: border-box;
+  position: relative;
+  text-decoration: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.l--header {
+  border-radius: 16px;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+.secondary--header {
+  color: var(--text-button-text-color, var(--color-blue-90));
+}
+
+.primary--header{
+  background-color: var(--theme-primary);
+  color: var(--color-gray-00);
+}
+
+.log--header {
+    border-radius: var(--base-button-border-radius, 16px);
+    padding: 0 28px;
+    height: 56px;
+    font-size: 18px;
+    line-height: 22px;
+}
