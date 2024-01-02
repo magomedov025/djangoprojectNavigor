@@ -3,4 +3,5 @@ staticfiles/
 media/
 *.sqlite3
 .idea
+.vscode/
 
