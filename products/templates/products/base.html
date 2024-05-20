@@ -1,62 +1,75 @@
 {% load static %}
 
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="{% static 'vendor/css/index.css' %}">
-    <link rel="stylesheet" href="{% static 'vendor/css/header.css' %}">
-    <link rel="stylesheet" href="{% static 'vendor/css/footer.css' %}">
-    <!--Custom styles for this template-->
-    {% block css %} {% endblock %}
-    <title>{{ title }}</title>
-</head>
-<body>
-    <header class="header">
-        <div class="header__container">
-            <div class="header__inner">
-                <a href="/" class="header__logo"></a>
-                <div class="header__nav">
-                    <div class="header-nav">
-                        <div class="nav__item">
-                            <a tabindex="0" class="button--header secondary--header l--header" href="{% url 'index' %}">
-                                <span class="button__label">Главная</span>
-                            </a>
-                        </div>
-                        <div class="nav__item">
-                            <a tabindex="0" class="button--header secondary--header l--header" href="{% url 'products' %}">
-                                <span class="button__label">Курсы</span>
-                            </a>
-                        </div>
-                        <div class="nav__item nav__item--login">
-                            <a tabindex="0" class="button--header primary--header log--header" href="/accounts/login/">
-                                <span class="button__label">Войти</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-    <main id="main-content" class="main-content">
-        {% block content %} {% endblock %}
-    </main>
-    <footer class="footer">
-        <div class="footer__container">
-            <div class="footer__inner">
-                <div class="footer__links">
-                    <a href="" class="footer__link">Условия</a>
-                    <a href="" class="footer__link">Конфиденциальность</a>
-                    <a href="" class="footer__link">Способы оплаты</a>
-                    <a href="" class="footer__link">Контакты</a>
-                    <a href="" class="footer__link">Сведения об образовательной организации</a>
-                </div>
-                <div class="footer__copyright">
-                    <span class="footer__copyright-text">Все права защищены</span>
-                </div>
-            </div>
-        </div>
-    </footer>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="stylesheet" href="{% static 'vendor/css/index.css' %}" />
+		<link rel="stylesheet" href="{% static 'vendor/css/header.css' %}" />
+		<link rel="stylesheet" href="{% static 'vendor/css/footer.css' %}" />
+		<!--Custom styles for this template-->
+		{% block css %} {% endblock %}
+		<title>{{ title }}</title>
+	</head>
+	<body>
+		<header class="header">
+			<div class="header__container">
+				<div class="header__inner">
+					<a href="/" class="header__logo"></a>
+					<div class="header__nav">
+						<div class="header-nav">
+							<div class="nav__item">
+								<a
+									tabindex="0"
+									class="button--header secondary--header l--header"
+									href="{% url 'index' %}"
+								>
+									<span class="button__label">Главная</span>
+								</a>
+							</div>
+							<div class="nav__item">
+								<a
+									tabindex="0"
+									class="button--header secondary--header l--header"
+									href="{% url 'products:index' %}"
+								>
+									<span class="button__label">Курсы</span>
+								</a>
+							</div>
+							<div class="nav__item nav__item--login">
+								<a
+									tabindex="0"
+									class="button--header primary--header log--header"
+									href="/accounts/login/"
+								>
+									<span class="button__label">Войти</span>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<main id="main-content" class="main-content">
+			{% block content %} {% endblock %}
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+				<div class="footer__inner">
+					<div class="footer__links">
+						<a href="" class="footer__link">Условия</a>
+						<a href="" class="footer__link">Конфиденциальность</a>
+						<a href="" class="footer__link">Способы оплаты</a>
+						<a href="" class="footer__link">Контакты</a>
+						<a href="" class="footer__link"
+							>Сведения об образовательной организации</a
+						>
+					</div>
+					<div class="footer__copyright">
+						<span class="footer__copyright-text">Все права защищены</span>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</body>
 </html>

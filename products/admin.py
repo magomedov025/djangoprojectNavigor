@@ -1,7 +1,6 @@
 from django.contrib import admin
 
-from products.models import (ProductCategory, Product, EducationTime, ProgrammProduct, ProductFormat,
-                             EducationOneLesson, EducationTrans)
+from products.models import (ProductCategory, Product, EducationTime, ProgrammProduct, ProductFormat, EducationOneLesson, EducationTrans)
 
 admin.site.register(Product)
 admin.site.register(ProductCategory)

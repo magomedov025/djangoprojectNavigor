@@ -4,4 +4,4 @@ media/
 *.sqlite3
 .idea
 .vscode/
-
+node_modules/

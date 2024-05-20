@@ -1,0 +1,30 @@
+{% extends 'products/base.html' %} {% load static %} {% block css %}
+<link
+	rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+/>
+
+<link rel="stylesheet" href="{% static 'vendor/css/product_detail.css'%}" />
+
+{% endblock %} {% block content %}
+<div
+	class="section_one"
+	style="background: url(../../../media/{{product.image}});"
+>
+	<div class="base-container">
+		<div class="main_container">
+			<div class="title-list">
+				<div class="option_list">
+					<h1>{{ product.name }}</h1>
+					<p>{{ product.description }}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
+
+<h1>{{ product.title }}</h1>
+<p>{{ product.description }}</p>
+<p>Price: ${{ product.price }}</p>

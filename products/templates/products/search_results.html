@@ -1,126 +1,46 @@
 {% extends 'products/base.html' %} {% load static %} {% block css %}
-<link
-	rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-/>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
 <link rel="stylesheet" href="{% static 'vendor/css/products.css'%}" />
-
+<script src="{% static 'js/modules/base/material.js'%}"></script>
 {% endblock %} {% block content %}
 <div class="base-container">
 	<div class="course-list">
-		<div class="header header_products">
+		<div class="header">
 			<h1 class="title">Огромный выбор курсов</h1>
 			<h6 class="subtitle">
 				Прокачай себя курсами разных направлений: рисование, программирование,
 				робототехника и многое другое
 			</h6>
 		</div>
+		<div class="filters">
+			{% for category in categories %}
+			<a href="{% url 'products:category' category.id %}"
+				>{{ category.name }}</a
+			>
+			{% endfor %}
+		</div>
 		<div class="subheader">
 			<div class="subheader__section subheader__section--start">
 				<form method="GET" action="{% url 'products:search' %}">
-					<div class="row mragin-buttom-0">
-						<div class="col s12 pdding-0 d-flex al-items-center">
-							<div
-								class="input-field inline mragin-left-0 col s6 mragin-top-0 mragin-buttom-0"
-							>
-								<input
-									id="search_inline"
-									type="text"
-									name="q"
-									type="email"
-									class="validate mragin-buttom-0"
-								/>
-								<label for="search_inline"> Поиск по курсам</label>
-							</div>
-							<div class="search col s6">
-								<a class="waves-effect waves-light btn">
-									Найти <i class="material-icons left">search</i></a
-								>
-							</div>
-						</div>
-					</div>
+					<input type="text" name="q" placeholder="Поиск по названию..." />
+					<button type="submit">Искать</button>
 				</form>
 			</div>
-			<div class="subheader__section subheader__section--end">
-				<div class="modes"></div>
-				<div class="course-list-ordering">
-					<div class="input-field mragin-buttom-0 mragin-top-0">
-						<select>
-							<option value="1">По популярносте</option>
-							<option value="2">По рейтингу</option>
-							<option value="3">По цене</option>
-						</select>
-					</div>
-				</div>
-			</div>
+			<div class="subheader__section subheader__section--end"></div>
 		</div>
-		<div class="main">
-			<div class="main-section main-section--start">
-				<div>
-					<div class="course-list-filters">
-						<div class="header_courses_filter">
-							<h4 class="title_courses_filter">Фильтр</h4>
-						</div>
-						<div class="filter_category">
-							<div class="input-field mragin-buttom-0 mragin-top-0">
-								<select id="categorySelect">
-									<option value="" data-url="{% url 'products:index' %}">
-										Все направления
-									</option>
-									{% for category in categories %}
-									<option
-										value=""
-										data-url="{% url 'products:category' category.id %}"
-									>
-										{{ category.name }}
-									</option>
-									{% endfor %}
-								</select>
-
-								<div class="item details">
-									<p class="summary">Формат занятий</p>
-									<div class="chips" id="chips">
-										<a href="{% url 'products:index' %}" class="chip">Все</a>
-										{% for educationFormat in educationFormats %}
-										<a
-											href="{% url 'products:educationFormat' educationFormat.id %}"
-											class="chip"
-											>{{ educationFormat.name }}</a
-										>
-										{% endfor %}
-									</div>
-								</div>
-								<div class="item details">
-									<p class="summary">Сложность</p>
-									<div class="chips" id="chips">
-										<a href="{% url 'products:index' %}" class="chip">Все</a>
-										{% for transEducation in transEducations %}
-										<a
-											href="{% url 'products:transEducation' transEducation.id %}"
-											class="chip"
-											>{{ transEducation.name }}</a
-										>
-										{% endfor %}
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="main-section main-section--end">
-				<div class="overline">
-					<span id="countCourses"></span>
-				</div>
-				<div class="content content--list">
+		<div class="popular-courses__courses__list">
+			<div
+				class="popular-courses__slider popular-courses__swiper swiper swiper-initialized swiper-horizontal swiper-pointer-events swiper-backface-hidden"
+			>
+				<div
+					class="swiper-wrapper"
+					style="
+						transition-duration: 0ms;
+						transform: translate3d(0px, 0px, 0px);
+					"
+				>
 					{% for product in products %}
 					<div class="course-card">
-						<a
-							class="card tablet"
-							href="{% url 'products:product_detail' pk=product.pk %}"
-						>
+						<a class="card tablet" href="">
 							<div class="card-header">
 								<div class="rating">
 									<div class="rating__star">
@@ -147,7 +67,7 @@
 								</div>
 							</div>
 							<h3 class="title-course">{{ product.name }}</h3>
-							<div class="chipses">
+							<div class="chips">
 								<div class="chips_item chips_item--online">
 									{{ product.educationFormat }}
 								</div>
@@ -211,47 +131,12 @@
 							</div>
 						</a>
 					</div>
+					{% empty %}
+					<li>Нет результатов</li>
 					{% endfor %}
 				</div>
 			</div>
-
-			<link
-				href="https://fonts.googleapis.com/icon?family=Material+Icons"
-				rel="stylesheet"
-			/>
-
-			<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
-			<script src="{% static 'js/modules/base/material.js'%}"></script>
-			<script>
-				var categorySelect = document.getElementById('categorySelect')
-
-				// Загрузка сохраненного значения из localStorage
-				var selectedCategory = localStorage.getItem('selectedCategory')
-				if (selectedCategory) {
-					categorySelect.value = selectedCategory
-				}
-
-				// Обработчик изменения значения
-				categorySelect.onchange = function () {
-					var url = this.options[this.selectedIndex].getAttribute('data-url')
-					if (url) {
-						window.location.href = url
-						// Сохранение выбранного значения в localStorage
-						localStorage.setItem('selectedCategory', this.value)
-					}
-				}
-
-				var courseCards = document.getElementsByClassName('course-card')
-				var countCourses = courseCards.length
-
-				// Помещаем количество в тег span
-				var countElement = document.getElementById('countCourses')
-				countElement.textContent = countCourses + ' курса'
-			</script>
-
-			{% endblock %}
 		</div>
 	</div>
 </div>
+{% endblock %}
